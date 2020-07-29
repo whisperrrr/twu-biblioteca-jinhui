@@ -7,9 +7,6 @@ public class Book {
     private int publishYear;
     private boolean isInStock;
 
-    public Book() {
-    }
-
     public Book(String name, String author, int publishYear, boolean isInStock) {
         this.name = name;
         this.author = author;

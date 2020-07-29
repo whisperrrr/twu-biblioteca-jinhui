@@ -1,7 +1,6 @@
 package com.twu.biblioteca.entity.user;
 
 import com.twu.biblioteca.entity.Book;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 

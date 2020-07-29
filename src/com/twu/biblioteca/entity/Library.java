@@ -9,10 +9,6 @@ public class Library {
     private String name = "Biblioteca";
     private ArrayList<Book> books;
 
-    public ArrayList<Book> getBooks() {
-        return books;
-    }
-
     public Library(ArrayList<Book> books) {
         this.books = books;
     }

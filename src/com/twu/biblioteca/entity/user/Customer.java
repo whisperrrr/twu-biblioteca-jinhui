@@ -1,7 +1,6 @@
 package com.twu.biblioteca.entity.user;
 
 import com.twu.biblioteca.entity.Book;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -13,11 +12,7 @@ public class Customer extends User {
     @Override
     public void operate(ArrayList<Book> books) {
         while (true) {
-            System.out.println("please have a choice");
-            System.out.println("1.List of books 2.Check out books 3.Return books 4.Quit");
-
-            Scanner scanner = new Scanner(System.in);
-            int userChoice = scanner.nextInt();
+            int userChoice = getUserChoice();
 
             switch (userChoice) {
                 case 1 -> list(books);
@@ -27,5 +22,13 @@ public class Customer extends User {
                 default -> System.out.println("You input a invalid option,please try again.");
             }
         }
+    }
+
+    private int getUserChoice() {
+        System.out.println("please have a choice");
+        System.out.println("1.List of books 2.Check out books 3.Return books 4.Quit");
+
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextInt();
     }
 }
