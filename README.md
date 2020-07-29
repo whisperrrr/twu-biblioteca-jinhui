@@ -1,10 +1,10 @@
-##Release 1
-####Technical notes
+## Release 1
+#### Technical notes
 - Bibliteca needs to be a command line interface
 - We do not need a database
 - We will be using Java8
 
-####Story
+#### Story
 1.View a welcome message
 
 >**AS A** Customer
