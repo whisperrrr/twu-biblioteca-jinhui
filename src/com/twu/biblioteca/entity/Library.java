@@ -1,22 +1,23 @@
 package com.twu.biblioteca.entity;
 
 import com.twu.biblioteca.entity.user.Customer;
+import com.twu.biblioteca.entity.user.User;
 
 public class Library {
     private String name = "Biblioteca";
 
     public void run() {
         welcome();
-        login();
+
+        User user = login();
+        user.operate();
     }
 
-    private void login() {
-        // Assuming that login successfull
-        Customer customer = new Customer();
-
+    public User login() {
+        return new Customer();
     }
 
-    private void welcome() {
+    public void welcome() {
         System.out.println("Welcome to Biblioteca. Your one-stop-shop for great boot titles in Bangalore!");
     }
 

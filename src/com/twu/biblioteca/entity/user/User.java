@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public abstract class User {
     private String name;
-    private String passward;
+    private String password;
 
     public abstract void operate();
 
@@ -24,5 +24,10 @@ public abstract class User {
 
     public String returnBook() {
         return null;
+    }
+
+    public void quit() {
+        System.out.println("See you next time. \nWish you have a good day.");
+        System.exit(0);
     }
 }
