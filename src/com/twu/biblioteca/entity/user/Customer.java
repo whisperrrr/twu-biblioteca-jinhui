@@ -21,10 +21,7 @@ public class Customer extends User {
 
             switch (userChoice) {
                 case 1 -> list(books);
-                case 2 -> {
-                    String checkoutResult = checkout();
-                    System.out.println(checkoutResult);
-                }
+                case 2 -> checkout(books);
                 case 3 -> {
                     String returnResult = returnBook();
                     System.out.println(returnResult);
