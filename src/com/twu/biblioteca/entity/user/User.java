@@ -1,6 +1,7 @@
 package com.twu.biblioteca.entity.user;
 
 import com.twu.biblioteca.entity.Book;
+import com.twu.biblioteca.exception.InvalidOptionException;
 
 import java.util.ArrayList;
 
@@ -12,10 +13,10 @@ public abstract class User {
     private String name;
     private String password;
 
-    public abstract void operate();
+    public abstract void operate(ArrayList<Book> books);
 
-    public ArrayList<Book> list() {
-        return null;
+    public void list(ArrayList<Book> books) {
+        books.forEach(book -> System.out.println(book));
     }
 
     public String checkout() {

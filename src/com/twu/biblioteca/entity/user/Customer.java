@@ -5,34 +5,33 @@ import com.twu.biblioteca.entity.Book;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Customer extends User{
+public class Customer extends User {
     public Customer() {
         super();
     }
 
     @Override
-    public void operate() {
-        System.out.println("please have a choice");
-        System.out.println("1.List of books 2.Check out books 3.Return books 4.Quit");
+    public void operate(ArrayList<Book> books) {
+        while (true) {
+            System.out.println("please have a choice");
+            System.out.println("1.List of books 2.Check out books 3.Return books 4.Quit");
 
-        Scanner scanner = new Scanner(System.in);
-        int userChoice = scanner.nextInt();
+            Scanner scanner = new Scanner(System.in);
+            int userChoice = scanner.nextInt();
 
-        switch (userChoice) {
-            case 1 -> {
-                ArrayList<Book> bookList = list();
-                System.out.println(bookList);
+            switch (userChoice) {
+                case 1 -> list(books);
+                case 2 -> {
+                    String checkoutResult = checkout();
+                    System.out.println(checkoutResult);
+                }
+                case 3 -> {
+                    String returnResult = returnBook();
+                    System.out.println(returnResult);
+                }
+                case 4 -> quit();
+                default -> System.out.println("You input a invalid option,please try again.");
             }
-            case 2 -> {
-                String checkoutResult = checkout();
-                System.out.println(checkoutResult);
-            }
-            case 3 -> {
-                String returnResult = returnBook();
-                System.out.println(returnResult);
-            }
-            case 4 -> quit();
         }
-
     }
 }

@@ -3,14 +3,25 @@ package com.twu.biblioteca.entity;
 import com.twu.biblioteca.entity.user.Customer;
 import com.twu.biblioteca.entity.user.User;
 
+import java.util.ArrayList;
+
 public class Library {
     private String name = "Biblioteca";
+    private ArrayList<Book> books;
+
+    public ArrayList<Book> getBooks() {
+        return books;
+    }
+
+    public Library(ArrayList<Book> books) {
+        this.books = books;
+    }
 
     public void run() {
         welcome();
 
         User user = login();
-        user.operate();
+        user.operate(books);
     }
 
     public User login() {
