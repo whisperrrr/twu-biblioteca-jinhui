@@ -22,10 +22,7 @@ public class Customer extends User {
             switch (userChoice) {
                 case 1 -> list(books);
                 case 2 -> checkout(books);
-                case 3 -> {
-                    String returnResult = returnBook();
-                    System.out.println(returnResult);
-                }
+                case 3 -> returnBook(books);
                 case 4 -> quit();
                 default -> System.out.println("You input a invalid option,please try again.");
             }

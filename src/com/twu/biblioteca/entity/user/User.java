@@ -1,6 +1,7 @@
 package com.twu.biblioteca.entity.user;
 
 import com.twu.biblioteca.entity.Book;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -19,25 +20,13 @@ public abstract class User {
     }
 
     public void checkout(ArrayList<Book> books) {
-        boolean updateFlag = false;
-        System.out.println("Please input the name of book.");
-        Scanner scanner = new Scanner(System.in);
-        String bookName = scanner.nextLine();
-
-        for (Book book : books) {
-            if (book.getName().equals(bookName) && book.isInStock()) {
-                book.setInStock(false);
-                updateFlag = true;
-                updateDatabase();
-            }
-        }
-
-        printCheckoutResult(updateFlag);
-        list(books);
+        boolean operateSuccessfulFlag = operateBook(books, true);
+        printCheckoutResult(operateSuccessfulFlag);
     }
 
-    public String returnBook() {
-        return null;
+    public void returnBook(ArrayList<Book> books) {
+        boolean operateSuccessfulFlag = operateBook(books, false);
+        printReturnResult(operateSuccessfulFlag);
     }
 
     public void quit() {
@@ -45,12 +34,38 @@ public abstract class User {
         System.exit(0);
     }
 
-    private void printCheckoutResult(boolean updateFlag) {
-        if (updateFlag) {
+    private void printCheckoutResult(boolean operateSuccessfulFlag) {
+        if (operateSuccessfulFlag) {
             System.out.println("Thank you!Enjoy the book. \n");
         } else {
-            System.out.println("Sorry,that book is not available \n");
+            System.out.println("Sorry,that book is not available. \n");
         }
+    }
+
+    private void printReturnResult(boolean operateSuccessfulFlag) {
+        if (operateSuccessfulFlag) {
+            System.out.println("Thank you for returning the book. \n");
+        } else {
+            System.out.println("This is not a valid book to return. \n");
+        }
+    }
+
+    private boolean operateBook(ArrayList<Book> books, boolean inStockCondition) {
+        boolean operateSuccessfulFlag = false;
+        System.out.println("Please input the name of book.");
+        Scanner scanner = new Scanner(System.in);
+        String bookName = scanner.nextLine();
+
+        for (Book book : books) {
+            if (book.getName().equals(bookName) && book.isInStock() == inStockCondition) {
+                book.setInStock(!book.isInStock());
+                operateSuccessfulFlag = true;
+                updateDatabase();
+            }
+        }
+
+        //list(books);
+        return operateSuccessfulFlag;
     }
 
     // for further database TODO
