@@ -3,6 +3,7 @@ package com.twu.biblioteca.entity.user;
 import com.twu.biblioteca.entity.Book;
 
 import static com.twu.biblioteca.entity.user.Admin.showBookList;
+import static com.twu.biblioteca.entity.user.Admin.showMovieList;
 import static com.twu.biblioteca.utils.InputUtil.getBookInput;
 import static com.twu.biblioteca.utils.InputUtil.getUserChoice;
 
@@ -31,7 +32,11 @@ public class Customer extends User {
                     String returnResult = returnBook(book);
                     System.out.println(returnResult);
                 }
-                case 4 -> quit();
+                case 4 -> {
+                    String movieList = showMovieList();
+                    System.out.println(movieList);
+                }
+                case 5 -> quit();
                 default -> System.out.println("You input a invalid option,please try again.");
             }
         }

@@ -2,6 +2,7 @@ package com.twu.biblioteca.entity.user;
 
 import com.twu.biblioteca.entity.Book;
 import com.twu.biblioteca.entity.Library;
+import com.twu.biblioteca.entity.Movie;
 
 public class Admin {
     private String name;
@@ -11,6 +12,13 @@ public class Admin {
     public static String showBookList() {
         return libraryManaged.getBooks().stream()
                 .map(Book::toString)
+                .reduce(String::concat)
+                .orElse("");
+    }
+
+    public static String showMovieList() {
+        return libraryManaged.getMovies().stream()
+                .map(Movie::toString)
                 .reduce(String::concat)
                 .orElse("");
     }
