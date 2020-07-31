@@ -25,9 +25,9 @@ public class DataProvider {
     public static ArrayList<Movie> provideMovieData() {
         return new ArrayList<>(
                 Arrays.asList(
-                        new Movie("七号房的礼物", "李焕英", 2013, false),
-                        new Movie("The Avengers", "乔斯·韦灯", 2012, true),
-                        new Movie("Interstellar", "克里斯托弗·诺兰", 2014, true)
+                        new Movie("七号房的礼物", "李焕英", 2013, 9, false),
+                        new Movie("The Avengers", "乔斯·韦灯", 2012, 9, true),
+                        new Movie("Interstellar", "克里斯托弗·诺兰", 2014, 8, true)
                 )
         );
     }
