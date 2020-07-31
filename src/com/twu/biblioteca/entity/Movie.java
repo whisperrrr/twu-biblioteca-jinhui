@@ -7,6 +7,10 @@ public class Movie {
     private int rating;
     private boolean isInStock;
 
+    public Movie(String name) {
+        this.name = name;
+    }
+
     public Movie(String name, String director, int releaseDate, int rating, boolean isInStock) {
         this.name = name;
         this.director = director;
