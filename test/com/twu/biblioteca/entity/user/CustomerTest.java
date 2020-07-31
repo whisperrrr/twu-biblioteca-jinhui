@@ -50,13 +50,13 @@ public class CustomerTest {
 
     @Test
     public void shouldGetSuccessInfoWhenCheckoutMovieSuccess() {
-        String checkoutResult = customer.checkout(movie);
+        String checkoutResult = customer.checkout(movieInStock);
         assertThat(checkoutResult,is("Thank you!Enjoy the movie. \n"));
     }
 
     @Test
     public void shouldGetFailureInfoWhenCheckoutMovieUnsuccess() {
-        String checkoutResult = customer.checkout(movie);
+        String checkoutResult = customer.checkout(movieNotInStock);
         assertThat(checkoutResult,is("Sorry,that movie is not available. \n"));
     }
 

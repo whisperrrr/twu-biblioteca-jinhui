@@ -19,12 +19,25 @@ public class Movie {
         this.isInStock = isInStock;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public boolean isInStock() {
+        return isInStock;
+    }
+
+    public void setInStock(boolean inStock) {
+        isInStock = inStock;
+    }
+
     @Override
     public String toString() {
-        return  "name = " + name + '\n' +
+        return "name = " + name + '\n' +
                 "director = " + director + '\n' +
                 "releaseDate = " + releaseDate + '\n' +
                 "rating = " + rating + '\n' +
                 "isInStock = " + isInStock + "\n\n";
     }
+
 }

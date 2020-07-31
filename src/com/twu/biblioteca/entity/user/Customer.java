@@ -1,6 +1,7 @@
 package com.twu.biblioteca.entity.user;
 
 import com.twu.biblioteca.entity.Book;
+import com.twu.biblioteca.entity.Movie;
 
 import static com.twu.biblioteca.entity.user.Admin.showBookList;
 import static com.twu.biblioteca.entity.user.Admin.showMovieList;
@@ -50,5 +51,10 @@ public class Customer extends User {
     @Override
     public String returnBook(Book book) {
         return Admin.handleUserReturn(book);
+    }
+
+    @Override
+    public String checkout(Movie movie) {
+        return Admin.handleUserCheckout(movie);
     }
 }

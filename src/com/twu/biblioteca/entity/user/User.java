@@ -1,6 +1,8 @@
 package com.twu.biblioteca.entity.user;
 
 import com.twu.biblioteca.entity.Book;
+import com.twu.biblioteca.entity.Movie;
+
 import java.util.ArrayList;
 
 public abstract class User {
@@ -13,6 +15,8 @@ public abstract class User {
     public abstract String checkout(Book book);
 
     public abstract String returnBook(Book book);
+
+    public abstract String checkout(Movie movie);
 
     public void quit() {
         System.out.println("See you next time. \nWish you have a good day.");

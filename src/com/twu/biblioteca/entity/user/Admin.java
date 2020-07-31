@@ -45,4 +45,15 @@ public class Admin {
         }
         return handleFlag ? "Thank you for returning the book. \n" : "This is not a valid book to return. \n";
     }
+
+    public static String handleUserCheckout(Movie movieHandled) {
+        boolean handleFlag = false;
+        for (Movie movie : libraryManaged.getMovies()) {
+            if (movie.getName().equals(movieHandled.getName()) && movie.isInStock()) {
+                movie.setInStock(!movie.isInStock());
+                handleFlag = true;
+            }
+        }
+        return handleFlag ? "Thank you!Enjoy the movie. \n" : "Sorry,that movie is not available. \n";
+    }
 }
