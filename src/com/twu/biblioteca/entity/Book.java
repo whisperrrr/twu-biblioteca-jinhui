@@ -7,6 +7,10 @@ public class Book {
     private int publishYear;
     private boolean isInStock;
 
+    public Book(String name) {
+        this.name = name;
+    }
+
     public Book(String name, String author, int publishYear, boolean isInStock) {
         this.name = name;
         this.author = author;
@@ -31,6 +35,6 @@ public class Book {
         return  "name = " + name + '\n' +
                 "author = " + author + '\n' +
                 "publishYear = " + publishYear + '\n' +
-                "isInStock = " + isInStock + '\n';
+                "isInStock = " + isInStock + "\n\n";
     }
 }
