@@ -56,4 +56,9 @@ public class Admin {
         }
         return handleFlag ? "Thank you!Enjoy the movie. \n" : "Sorry,that movie is not available. \n";
     }
+
+    // TODO
+    public static User handleLogin(String libraryNum, String password) {
+        return null;
+    }
 }

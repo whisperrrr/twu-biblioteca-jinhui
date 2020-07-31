@@ -3,6 +3,8 @@ package com.twu.biblioteca.entity.user;
 import com.twu.biblioteca.entity.Book;
 import com.twu.biblioteca.entity.Movie;
 
+import java.util.ArrayList;
+
 import static com.twu.biblioteca.entity.user.Admin.showBookList;
 import static com.twu.biblioteca.entity.user.Admin.showMovieList;
 import static com.twu.biblioteca.utils.InputUtil.getBookInput;
@@ -10,7 +12,14 @@ import static com.twu.biblioteca.utils.InputUtil.getUserChoice;
 
 public class Customer extends User {
     public Customer() {
-        super();
+    }
+
+    public Customer(String libraryNumber, String password) {
+        super(libraryNumber, password);
+    }
+
+    public Customer(String libraryNumber, String password, ArrayList<Book> bookRented) {
+        super(libraryNumber, password, bookRented);
     }
 
     @Override

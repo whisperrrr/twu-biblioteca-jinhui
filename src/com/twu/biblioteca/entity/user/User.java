@@ -6,9 +6,23 @@ import com.twu.biblioteca.entity.Movie;
 import java.util.ArrayList;
 
 public abstract class User {
-    private String name;
+    private String libraryNumber;
     private String password;
     private ArrayList<Book> bookRented = new ArrayList<>();
+
+    public User() {
+    }
+
+    public User(String libraryNumber, String password) {
+        this.libraryNumber = libraryNumber;
+        this.password = password;
+    }
+
+    public User(String libraryNumber, String password, ArrayList<Book> bookRented) {
+        this.libraryNumber = libraryNumber;
+        this.password = password;
+        this.bookRented = bookRented;
+    }
 
     public abstract void operate();
 
