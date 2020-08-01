@@ -4,6 +4,9 @@ import com.twu.biblioteca.entity.Book;
 import com.twu.biblioteca.entity.Library;
 import com.twu.biblioteca.entity.Movie;
 
+import java.util.Arrays;
+import java.util.stream.Stream;
+
 public class Admin {
     private String name;
     private String password;
@@ -57,8 +60,12 @@ public class Admin {
         return handleFlag ? "Thank you!Enjoy the movie. \n" : "Sorry,that movie is not available. \n";
     }
 
-    // TODO
     public static User handleLogin(String libraryNum, String password) {
-        return null;
+        Customer userInput = new Customer(libraryNum, password);
+
+        return libraryManaged.getUsers().stream()
+                .filter(ele -> ele.equals(userInput))
+                .findFirst()
+                .orElse(null);
     }
 }

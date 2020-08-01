@@ -4,6 +4,7 @@ import com.twu.biblioteca.entity.Book;
 import com.twu.biblioteca.entity.Movie;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public abstract class User {
     private String libraryNumber;
@@ -37,4 +38,17 @@ public abstract class User {
         System.exit(0);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(libraryNumber, user.libraryNumber) &&
+                Objects.equals(password, user.password);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(libraryNumber, password);
+    }
 }

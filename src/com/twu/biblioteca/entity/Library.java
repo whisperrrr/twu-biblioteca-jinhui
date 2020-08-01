@@ -11,6 +11,7 @@ public class Library {
     private String name = "Biblioteca";
     private ArrayList<Book> books = DataProvider.provideBookData();
     private ArrayList<Movie> movies = DataProvider.provideMovieData();
+    private ArrayList<Customer> users = DataProvider.provideCustomerData();
 
     public ArrayList<Book> getBooks() {
         return books;
@@ -18,6 +19,10 @@ public class Library {
 
     public ArrayList<Movie> getMovies() {
         return movies;
+    }
+
+    public ArrayList<Customer> getUsers() {
+        return users;
     }
 
     public void run() {
