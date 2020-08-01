@@ -1,10 +1,14 @@
 package com.twu.biblioteca.entity;
 
 import com.twu.biblioteca.DataProvider;
+import com.twu.biblioteca.entity.user.Admin;
 import com.twu.biblioteca.entity.user.Customer;
 import com.twu.biblioteca.entity.user.User;
+import com.twu.biblioteca.exception.InvalidLoginInfo;
+import com.twu.biblioteca.utils.InputUtil;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 
 public class Library {
@@ -33,7 +37,14 @@ public class Library {
     }
 
     public User login() {
-        return new Customer();
+        while (true) {
+            Map<String, String> loginInput = InputUtil.getLoginInput();
+            try {
+                return Admin.handleLogin(loginInput.get("libraryNum"), loginInput.get("password"));
+            } catch (InvalidLoginInfo invalidLoginInfo) {
+                System.out.println("Wrong password,please try again.");
+            }
+        }
     }
 
     public void welcome() {

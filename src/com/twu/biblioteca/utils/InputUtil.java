@@ -2,6 +2,8 @@ package com.twu.biblioteca.utils;
 
 import com.twu.biblioteca.entity.Book;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class InputUtil {
@@ -21,4 +23,18 @@ public class InputUtil {
         return scanner.nextInt();
     }
 
+    public static Map<String, String> getLoginInput() {
+        Map<String, String> loginInput = new HashMap<>();
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("please input your library number.");
+        String libraryNum = scanner.nextLine();
+        System.out.println("please input your password.");
+        String password = scanner.nextLine();
+
+        loginInput.put("libraryNum", libraryNum);
+        loginInput.put("password", password);
+
+        return loginInput;
+    }
 }

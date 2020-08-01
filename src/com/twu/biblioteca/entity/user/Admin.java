@@ -3,9 +3,7 @@ package com.twu.biblioteca.entity.user;
 import com.twu.biblioteca.entity.Book;
 import com.twu.biblioteca.entity.Library;
 import com.twu.biblioteca.entity.Movie;
-
-import java.util.Arrays;
-import java.util.stream.Stream;
+import com.twu.biblioteca.exception.InvalidLoginInfo;
 
 public class Admin {
     private String name;
@@ -60,12 +58,12 @@ public class Admin {
         return handleFlag ? "Thank you!Enjoy the movie. \n" : "Sorry,that movie is not available. \n";
     }
 
-    public static User handleLogin(String libraryNum, String password) {
+    public static User handleLogin(String libraryNum, String password) throws InvalidLoginInfo {
         Customer userInput = new Customer(libraryNum, password);
 
         return libraryManaged.getUsers().stream()
                 .filter(ele -> ele.equals(userInput))
                 .findFirst()
-                .orElse(null);
+                .orElseThrow(InvalidLoginInfo::new);
     }
 }
