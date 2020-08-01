@@ -22,6 +22,10 @@ public class Customer extends User {
         super(libraryNumber, password, bookRented);
     }
 
+    public Customer(String libraryNumber, String password, String name, String email, String phoneNumber, ArrayList<Book> bookCheckouted) {
+        super(libraryNumber, password, name, email, phoneNumber, bookCheckouted);
+    }
+
     @Override
     public void operate() {
         while (true) {
@@ -50,7 +54,11 @@ public class Customer extends User {
                     ArrayList<Book> bookCheckouted = getBookCheckouted();
                     System.out.println(bookCheckouted);
                 }
-                case 6 -> quit();
+                case 6 -> {
+                    String myInfo = getPersonInfo();
+                    System.out.println(myInfo);
+                }
+                case 7 -> quit();
                 default -> System.out.println("You input a invalid option,please try again.");
             }
         }

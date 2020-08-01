@@ -9,6 +9,9 @@ import java.util.Objects;
 public abstract class User {
     private String libraryNumber;
     private String password;
+    private String name;
+    private String email;
+    private String phoneNumber;
     private ArrayList<Book> bookCheckouted = new ArrayList<>();
 
     public User() {
@@ -25,8 +28,21 @@ public abstract class User {
         this.bookCheckouted = bookRented;
     }
 
+    public User(String libraryNumber, String password, String name, String email, String phoneNumber, ArrayList<Book> bookCheckouted) {
+        this.libraryNumber = libraryNumber;
+        this.password = password;
+        this.name = name;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.bookCheckouted = bookCheckouted;
+    }
+
     public ArrayList<Book> getBookCheckouted() {
         return bookCheckouted;
+    }
+
+    public String getPersonInfo() {
+        return String.format("name: %s \nemail: %s \nphone number: %s \n", name, email, phoneNumber);
     }
 
     public abstract void operate();

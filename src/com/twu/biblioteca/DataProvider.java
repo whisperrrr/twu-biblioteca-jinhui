@@ -39,8 +39,8 @@ public class DataProvider {
 
         return new ArrayList<>(
                 Arrays.asList(
-                        new Customer("330-1987","330",null),
-                        new Customer("731-1994","731",bookRentedList)
+                        new Customer("330-1987","330","Hebe Tien","yuelaiyuehao@gmail.com","330330330",null),
+                        new Customer("731-1994","731","Anita Jin","jh731448520@163.com","731731731",bookRentedList)
                 )
         );
     }
