@@ -1,0 +1,110 @@
+1. Who checked out the book 'The Hobbit'?
+
+/*solution1*/
+SELECT name 
+FROM member 
+WHERE id = (
+      SELECT member_id 
+      FROM checkout_item,book 
+      WHERE checkout_item.book_id = book.id 
+      AND book.title = 'The Hobbit')
+
+/*solution2*/      
+SELECT name 
+FROM book,checkout_item,member
+WHERE book.id = checkout_item.book_id
+AND checkout_item.member_id = member.id
+AND book.title = 'The Hobbit'
+
+/*output:Anand Beck*/
+
+2. How many people have not checked out anything?
+/*solution1*/
+SELECT count() AS count 
+FROM member
+WHERE member.id NOT IN (
+      SELECT member_id 
+      FROM checkout_item
+      )
+
+/*solution2*/
+SELECT count() AS count
+FROM member 
+LEFT JOIN checkout_item
+ON member.id = checkout_item.member_id
+WHERE checkout_item.member_id IS NULL
+
+/*output:37*/
+
+3. What books and movies aren't checked out?
+/*book*/
+SELECT id,title
+FROM book 
+LEFT JOIN checkout_item
+ON book.id = checkout_item.book_id
+WHERE book_id IS NULL
+
+/*movie*/
+SELECT id,title
+FROM movie 
+LEFT JOIN checkout_item
+ON movie.id = checkout_item.movie_id
+WHERE movie_id IS NULL
+
+/*output*/
+id	title
+6	Thin Red Line
+7	Crouching Tiger, Hidden Dragon
+8	Lawrence of Arabia
+9	Office Space
+
+
+id	title
+2	Fellowship of the Ring
+6	1984
+7	Tom Sawyer
+8	Catcher in the Rye
+9	To Kill a Mockingbird
+10	Domain Driven Design
+
+4. Add the book 'The Pragmatic Programmer',and add yourself as a member.
+    Check out 'The Pragmatic Programmer'.
+    Use your query from question 1 to verify that you have checked it out.
+    Also,provide the SQL used to update the database.
+
+/*add new book*/
+INSERT INTO book
+(title)
+VALUES
+('The Pragmatic Programmer')
+
+/*add new member*/
+INSERT INTO member
+(name)
+VALUES
+('Anita Jin')
+
+/*borrow a book*/
+INSERT INTO checkout_item
+(member_id, book_id)
+VALUES
+(43,11)
+
+/*Query*/
+SELECT name 
+FROM book,checkout_item,member
+WHERE book.id = checkout_item.book_id
+AND checkout_item.member_id = member.id
+AND book.title = 'The Pragmatic Programmer'
+
+5. Who has checked out more than 1 item?
+    Tip: Research the GROUP By syntax.
+
+SELECT id,name
+FROM member 
+WHERE id IN (
+      SELECT member_id
+      FROM checkout_item
+      GROUP BY member_id
+      HAVING (count() > 1)
+)
