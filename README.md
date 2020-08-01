@@ -1,10 +1,12 @@
-## Release 1
+## Bibliteca
 #### Technical notes
 - Bibliteca needs to be a command line interface
 - We do not need a database
 - We will be using Java8
 
-#### Story
+
+#### **Release1**
+
 1.View a welcome message
 
 >**AS A** Customer
@@ -100,3 +102,33 @@
 >**I WANT** to be notified if the book I am returning does not belong to this library
 >
 >**SO THAT** I can return it to the correct library or fix my spelling error
+
+#### **Release2**
+
+1.View a list of available movies
+>**AS A** Customer
+>
+>**I WANT** to see a list of available movies
+>
+>**SO THAT** I can browse for a movie that I might check-out
+
+2.Checkout a movie
+>**AS A** a Customer
+>
+>**I WANT** to check out a movie from the library
+>
+>**SO THAT** I can watch it at home
+
+3.User accounts:Login and View books checked out
+>**AS A** Librarian
+>
+>**I WANT** to know who has checked out a book
+>
+>**SO THAT** I can hold them accountable for returning it
+
+4.User accounts:Login and View my information
+>**AS A** Customer
+>
+>**I WANT** to be able to see my user information
+>
+>**SO THAT** I know that the library can contact me
