@@ -1,15 +1,12 @@
 package com.twu.biblioteca.entity.user;
 
 import com.twu.biblioteca.exception.InvalidLoginInfo;
-import junit.framework.TestCase;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import java.util.concurrent.ExecutionException;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 
 public class AdminTest{

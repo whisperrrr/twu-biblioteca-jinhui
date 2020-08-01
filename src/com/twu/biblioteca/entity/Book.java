@@ -35,6 +35,6 @@ public class Book {
         return  "name = " + name + '\n' +
                 "author = " + author + '\n' +
                 "publishYear = " + publishYear + '\n' +
-                "isInStock = " + isInStock + "\n\n";
+                "isInStock = " + isInStock + "\n";
     }
 }

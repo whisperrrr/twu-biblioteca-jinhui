@@ -46,7 +46,11 @@ public class Customer extends User {
                     String movieList = showMovieList();
                     System.out.println(movieList);
                 }
-                case 5 -> quit();
+                case 5 -> {
+                    ArrayList<Book> bookCheckouted = getBookCheckouted();
+                    System.out.println(bookCheckouted);
+                }
+                case 6 -> quit();
                 default -> System.out.println("You input a invalid option,please try again.");
             }
         }

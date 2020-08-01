@@ -35,7 +35,7 @@ public class DataProvider {
 
     public static ArrayList<Customer> provideCustomerData() {
         ArrayList<Book> bookRentedList = new ArrayList<>();
-        bookRentedList.add(new Book("非暴力沟通"));
+        bookRentedList.add(new Book("非暴力沟通", "[美]马歇尔·卢森堡", 2016, false));
 
         return new ArrayList<>(
                 Arrays.asList(

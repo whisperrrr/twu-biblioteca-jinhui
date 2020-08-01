@@ -9,7 +9,7 @@ import java.util.Objects;
 public abstract class User {
     private String libraryNumber;
     private String password;
-    private ArrayList<Book> bookRented = new ArrayList<>();
+    private ArrayList<Book> bookCheckouted = new ArrayList<>();
 
     public User() {
     }
@@ -22,7 +22,11 @@ public abstract class User {
     public User(String libraryNumber, String password, ArrayList<Book> bookRented) {
         this.libraryNumber = libraryNumber;
         this.password = password;
-        this.bookRented = bookRented;
+        this.bookCheckouted = bookRented;
+    }
+
+    public ArrayList<Book> getBookCheckouted() {
+        return bookCheckouted;
     }
 
     public abstract void operate();
